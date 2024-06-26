@@ -1,0 +1,53 @@
+/* static/admin/css/custom_admin.css */
+
+/* General body background color */
+body {
+    background-color: #f7f7f7;
+}
+
+/* Styling for table, card, modal content, and form control elements */
+table, .card, .modal-content, .form-control {
+    color: #333333; /* Light black color */
+}
+
+/* Styling for the main header (top navigation bar) */
+.main-header.navbar {
+    background-color: #FFCC00 !important; /* Yellow header */
+}
+
+/* Styling for the main sidebar */
+.main-sidebar {
+    background-color: #BA0C2F !important; /* Red sidebar */
+}
+
+/* Styling for sidebar text, making all text bold black */
+.main-sidebar .sidebar-menu,
+.main-sidebar .sidebar-menu .header,
+.main-sidebar .sidebar-menu li a {
+    font-weight: bold;
+    color: #BA0C2F !important; /* Bold black text */
+}
+
+/* Styling for active items in the sidebar */
+.sidebar-menu>li.active>a {
+    background-color: #FFCC00 !important; /* Active item yellow highlight */
+    color: #000 !important; /* Black text for active item */
+}
+
+/* Styling for items when hovered over in the sidebar */
+.sidebar-menu>li:hover>a {
+    background-color: #FFCC00 !important; /* Hover item yellow highlight */
+    color: #000 !important; /* Black text for hovered item */
+}
+
+/* Styling for the content wrapper and main footer */
+.content-wrapper, .main-footer {
+    background-color: #f7f7f7; /* Keep the content area background light */
+}
+
+/* Styling specifically for the footer to make it light gray */
+.main-footer {
+    background-color: #d3d3d3 !important; /* Light gray footer */
+    color: #000 !important; /* Black text */
+    font-weight: bold; /* Bold text */
+}

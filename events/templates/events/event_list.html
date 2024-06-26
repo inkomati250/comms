@@ -1,0 +1,88 @@
+{% extends "events/layout.html" %}
+
+{% block content %}
+<!-- Carousel -->
+<div id="carousel" class="owl-carousel carousel">">
+    {% for event in events %}
+        {% for image in event.images.all %}
+            <div class="item">
+                <img src="{{ image.image.url }}" alt="{{ event.filmname }}" class="carousel-image fit-image">
+            </div>
+        {% endfor %}
+    {% endfor %}
+</div>
+
+<section class ="intro-area white " id ="intro">
+    <div class="container">
+         <div class="row">
+             <div class ="col-sm-12 text-center">
+                 <h2> Willkommen zum DHL Sommerkino!</h2>
+                 <div class ="sub-heading">
+                     <p>
+                        Wir laden dich, deine Familie, Freunde, Bekannten und alle Nachbarn
+                        des DHL Drehkreuz Leipzig zum traditionellen Sommerkino ein.<br>
+                        Hier findest du alle Informationen zu den kommenden Veranstaltungen.<br>
+                        Freu dich auf spannende Filme, gemütliche Atmosphäre und unvergessliche Sommerabende.<br>
+                        Bleib auf dem Laufenden und verpasse keine Filme!
+                     </p>
+
+
+
+                 </div>
+             </div>
+
+
+         </div>
+         </div>
+        </section>
+
+
+<div class="table-container">
+    <table>
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Film Titel</th>
+                <th>Datum</th>
+                <th>Tag</th>
+                <th>Zeit</th>
+                <th>Adresse</th>
+                <th>Trailer ansehen</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for event in events %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{ event.filmname }}</td>
+                    <td>{{ event.datum }}</td>
+                    <td>{{ event.day }}</td>
+                    <td>{{ event.time }}</td>
+                    <td>
+                        <a href="https://www.google.com/maps/place/{{ event.formatted_address }}" target="_blank" class="trailer-button external-link">{{ event.formatted_address }}</a>
+                    </td>
+                    <td>
+                        <a href="{{ event.trailer }}" target="_blank" class="trailer-button external-link">{{ event.filmname }}</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+$(document).ready(function() {
+    $("#carousel").owlCarousel({
+        items: 1,
+        loop: true,
+        nav: true,
+        dots: true,
+        autoplay: true,
+        autoplayTimeout: 5000,
+        autoplayHoverPause: true
+    });
+});
+</script>
+{% endblock %}

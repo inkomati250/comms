@@ -1,0 +1,68 @@
+{% extends 'events/layout.html' %}
+
+{% block content %}
+<div class="impressum">
+
+    {% if item %}
+
+    <h2><span class="underline">Rec</span>htliche Hinweise</h2>
+
+        <div class="impressum-section">
+            <h4>Impressum</h4>
+            <div class="content_imp">
+                {% if item.impressum %}
+                    {% for line in item.impressum.splitlines %}
+                        <p>{{ line }}</p>
+                    {% endfor %}
+                {% else %}
+                    <p>No impressum</p>
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="impressum-section">
+            <h4>Kontaktinformationen</h4>
+            <div class="content_imp">
+                {% if item.contact_info %}
+                    {% for line in item.contact_info.splitlines %}
+                        <p>{{ line }}</p>
+                    {% endfor %}
+                {% else %}
+                    <p>No contact info</p>
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="impressum-section">
+            <h4>Geschäftsführung</h4>
+            <div class="content_imp">
+                {% if item.geschaeftsfuehrung %}
+                    {% for line in item.geschaeftsfuehrung.splitlines %}
+                        <p>{{ line }}</p>
+                    {% endfor %}
+                {% else %}
+                    <p>No geschaeftsfuehrung</p>
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="impressum-section">
+            <h4>Datenschutz</h4>
+            <div class="content_imp">
+                {% if item.datenschutz %}
+                    {% for line in item.datenschutz.splitlines %}
+                        <p>{{ line }}</p>
+                    {% endfor %}
+                {% else %}
+                    <p>No datenschutz</p>
+                {% endif %}
+            </div>
+        </div>
+
+    {% else %}
+        <!-- Handle case when item is not found -->
+        <p>No item found</p>
+    {% endif %}
+
+</div>
+{% endblock %}
